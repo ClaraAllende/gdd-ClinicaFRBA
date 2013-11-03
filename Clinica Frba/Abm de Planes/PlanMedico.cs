@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Clinica_Frba.Abm_de_Planes
 {
-    class PlanMedico
+    public class PlanMedico
     {
+        int precioBono;
     }
 }

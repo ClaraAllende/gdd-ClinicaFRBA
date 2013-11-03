@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abm de Afiliado\Afiliado.cs" />
+    <Compile Include="Abm de Especialidades Medicas\Especialidad.cs" />
+    <Compile Include="Abm de Planes\PlanMedico.cs" />
+    <Compile Include="Abm de Rol\Funcionalidad.cs" />
+    <Compile Include="Abm de Rol\Rol.cs" />
+    <Compile Include="DatosPersonales.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,7 @@
     <Compile Include="Registro de LLegada\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registro de Usuario\Usuario.cs" />
     <Compile Include="Registro Resultado Atencion\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
