@@ -117,7 +117,7 @@ habilitada bit DEFAULT 1,
 );
 
 CREATE TABLE HAKUNA_MATATA.PlanMedico (
-id_plan numeric (18,0)IDENTITY(1,1) NOT NULL,
+id_plan numeric (18,0) NOT NULL,
 precio_bono_consulta numeric (18,0) ,
 precio_bono_farmacia numeric (18,0),
 descripcion varchar(255),

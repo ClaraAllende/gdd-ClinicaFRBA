@@ -72,3 +72,8 @@ INSERT INTO HAKUNA_MATATA.Administrador(id_usuario)
 SELECT U.id_usuario
 FROM HAKUNA_MATATA.Usuario U
 WHERE U.nombre ='admin' AND U.contrasenia='w23e'
+
+INSERT INTO HAKUNA_MATATA.PlanMedico (id_plan, descripcion, precio_bono_consulta, precio_bono_farmacia)
+SELECT DISTINCT Plan_Med_Codigo, Plan_Med_Descripcion, Plan_Med_Precio_Bono_Consulta, Plan_Med_Precio_Bono_Farmacia
+FROM gd_esquema.Maestra
+
