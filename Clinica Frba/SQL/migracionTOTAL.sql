@@ -77,3 +77,7 @@ INSERT INTO HAKUNA_MATATA.PlanMedico (id_plan, descripcion, precio_bono_consulta
 SELECT DISTINCT Plan_Med_Codigo, Plan_Med_Descripcion, Plan_Med_Precio_Bono_Consulta, Plan_Med_Precio_Bono_Farmacia
 FROM gd_esquema.Maestra
 
+INSERT INTO HAKUNA_MATATA.Medicamento (descripcion)
+SELECT DISTINCT Bono_Farmacia_Medicamento
+FROM gd_esquema.Maestra
+WHERE Bono_Farmacia_Medicamento IS NOT NULL
