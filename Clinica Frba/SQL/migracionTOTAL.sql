@@ -15,10 +15,10 @@ SELECT DISTINCT Medico_Dni, 'w23e'
 FROM gd_esquema.Maestra
 WHERE Medico_Dni IS NOT NULL
 
-INSERT HAKUNA_MATATA.Profesional (id_usuario,nombre,apellido,numero_documento,direccion,telefono,mail,fecha_nacimiento)
+INSERT INTO HAKUNA_MATATA.Profesional (id_usuario,nombre,apellido,numero_documento,direccion,telefono,mail,fecha_nacimiento)
 SELECT DISTINCT U.id_usuario,M.Medico_Nombre,M.Medico_Apellido, M.Medico_Dni,M.Medico_Direccion,M.Medico_Telefono,M.Medico_Mail,M.Medico_Fecha_Nac
 FROM gd_esquema.Maestra M, HAKUNA_MATATA.Usuario U
-WHERE U.nombre=M.Medico_Dni
+WHERE U.nombre = CAST(M.Medico_Dni AS varchar(255))
 
 INSERT HAKUNA_MATATA.TipoEspecialidad (codigo_tipo_especialidad, descripcion_tipo_especialidad)
 SELECT DISTINCT M.Tipo_Especialidad_Codigo, M.Tipo_Especialidad_Descripcion
@@ -81,3 +81,9 @@ INSERT INTO HAKUNA_MATATA.Medicamento (descripcion)
 SELECT DISTINCT Bono_Farmacia_Medicamento
 FROM gd_esquema.Maestra
 WHERE Bono_Farmacia_Medicamento IS NOT NULL
+
+INSERT INTO HAKUNA_MATATA.Afiliado (id_usuario, nombre, apellido, numero_documento, direccion, telefono, mail, fecha_nacimiento, id_plan)
+SELECT DISTINCT U.id_usuario, M.Paciente_Nombre, M.Paciente_Apellido, M.Paciente_Dni, M.Paciente_Direccion, M.Paciente_Telefono, M.Paciente_Mail, M.Paciente_Fecha_Nac, M.Plan_Med_Codigo 
+FROM gd_esquema.Maestra M, HAKUNA_MATATA.Usuario U
+WHERE U.nombre = CAST(M.Paciente_Dni AS varchar(255))
+
