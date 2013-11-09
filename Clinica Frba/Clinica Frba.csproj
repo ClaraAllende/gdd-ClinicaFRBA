@@ -74,11 +74,11 @@
     <Compile Include="Registro de Usuario\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm de Afiliado\Form1.cs">
+    <Compile Include="Abm de Afiliado\Administracion de Afiliados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm de Afiliado\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm de Afiliado\Administracion de Afiliados.Designer.cs">
+      <DependentUpon>Administracion de Afiliados.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm de Profesional\Form1.cs">
       <SubType>Form</SubType>
@@ -155,8 +155,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Abm de Afiliado\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Abm de Afiliado\Administracion de Afiliados.resx">
+      <DependentUpon>Administracion de Afiliados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm de Rol\Administrador de Roles.resx">
       <DependentUpon>Administrador de Roles.cs</DependentUpon>
