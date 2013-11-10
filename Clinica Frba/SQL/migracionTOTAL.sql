@@ -96,8 +96,8 @@ FROM HAKUNA_MATATA.Afiliado A
 JOIN gd_esquema.Maestra M ON (A.numero_documento = M.Paciente_Dni AND M.Compra_Bono_Fecha IS NOT NULL)
 
 SET IDENTITY_INSERT HAKUNA_MATATA.BonoFarmacia ON
-INSERT INTO HAKUNA_MATATA.BonoFarmacia (id_bono, id_compra, id_afiliado, id_plan, precio, fecha_emision, numero_principal)
-SELECT DISTINCT M.Bono_Farmacia_Numero, C.id_compra,A.id_afiliado, A.id_plan, M.Plan_Med_Precio_Bono_Farmacia, M.Compra_Bono_Fecha, CAST(A.id_afiliado/100 AS NUMERIC(18,0))
+INSERT INTO HAKUNA_MATATA.BonoFarmacia (id_bono, id_compra, id_afiliado, id_plan, precio, fecha_emision, numero_principal, fecha_impresion)
+SELECT DISTINCT M.Bono_Farmacia_Numero, C.id_compra,A.id_afiliado, A.id_plan, M.Plan_Med_Precio_Bono_Farmacia, M.Compra_Bono_Fecha, CAST(A.id_afiliado/100 AS NUMERIC(18,0)), M.Bono_Farmacia_Fecha_Impresion
 FROM HAKUNA_MATATA.Afiliado A 
 LEFT JOIN HAKUNA_MATATA.Usuario U ON (A.id_usuario = U.id_usuario)
 LEFT JOIN gd_esquema.Maestra M ON (U.nombre = CAST(M.Paciente_Dni AS varchar(255)) AND M.Bono_Farmacia_Numero IS NOT NULL AND M.Compra_Bono_Fecha IS NOT NULL)
@@ -106,8 +106,8 @@ ORDER BY M.Bono_Farmacia_Numero
 SET IDENTITY_INSERT HAKUNA_MATATA.BonoFarmacia OFF
 
 SET IDENTITY_INSERT HAKUNA_MATATA.BonoConsulta ON
-INSERT INTO HAKUNA_MATATA.BonoConsulta (id_bono, id_compra, id_afiliado, id_plan, precio, numero_principal)
-SELECT DISTINCT M.Bono_Consulta_Numero, C.id_compra,A.id_afiliado, A.id_plan, M.Plan_Med_Precio_Bono_Consulta, CAST(A.id_afiliado/100 AS NUMERIC(18,0))
+INSERT INTO HAKUNA_MATATA.BonoConsulta (id_bono, id_compra, id_afiliado, id_plan, precio, numero_principal, fecha_impresion)
+SELECT DISTINCT M.Bono_Consulta_Numero, C.id_compra,A.id_afiliado, A.id_plan, M.Plan_Med_Precio_Bono_Consulta, CAST(A.id_afiliado/100 AS NUMERIC(18,0)), M.Bono_Consulta_Fecha_Impresion
 FROM HAKUNA_MATATA.Afiliado A 
 LEFT JOIN HAKUNA_MATATA.Usuario U ON (A.id_usuario = U.id_usuario)
 LEFT JOIN gd_esquema.Maestra M ON (U.nombre = CAST(M.Paciente_Dni AS varchar(255)) AND M.Bono_Consulta_Numero IS NOT NULL)
@@ -122,15 +122,15 @@ JOIN HAKUNA_MATATA.Medicamento Me ON(Ma.Bono_Farmacia_Medicamento = Me.descripci
 									AND Ma.Bono_Farmacia_Numero IS NOT NULL)
 
 SET IDENTITY_INSERT HAKUNA_MATATA.Turno ON
-INSERT INTO HAKUNA_MATATA.Turno (id_turno, hora, id_afiliado)
+INSERT INTO HAKUNA_MATATA.Turno (id_turno, fecha_y_hora, id_afiliado)
 SELECT DISTINCT M.Turno_Numero, M.Turno_Fecha, A.id_afiliado
 FROM HAKUNA_MATATA.Afiliado A
 JOIN gd_esquema.Maestra M ON (A.numero_documento = M.Paciente_Dni AND M.Turno_Numero IS NOT NULL)
 ORDER BY M.Turno_Numero
 SET IDENTITY_INSERT HAKUNA_MATATA.Turno OFF
 
-INSERT INTO HAKUNA_MATATA.Consulta (id_bono, id_turno)
-SELECT DISTINCT BC.id_bono, M.Turno_Numero
+INSERT INTO HAKUNA_MATATA.Consulta (id_bono, id_turno, sintoma, diagnostico)
+SELECT DISTINCT BC.id_bono, M.Turno_Numero, M.Consulta_Sintomas, M.Consulta_Enfermedades
 FROM HAKUNA_MATATA.Afiliado A
 JOIN gd_esquema.Maestra M ON (A.numero_documento = M.Paciente_Dni AND M.Turno_Numero IS NOT NULL AND M.Consulta_Sintomas IS NOT NULL)
 JOIN HAKUNA_MATATA.BonoConsulta BC ON (A.id_afiliado = BC.id_afiliado AND BC.id_bono = M.Bono_Consulta_Numero)
