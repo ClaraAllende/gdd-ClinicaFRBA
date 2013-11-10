@@ -48,8 +48,25 @@ BEGIN
 END
 GO 
 
-SELECT * FROM HAKUNA_MATATA.Afiliado
+--SELECT * FROM HAKUNA_MATATA.Afiliado
+
+CREATE FUNCTION HAKUNA_MATATA.dameNumeroPrincipalAfiliado
+								(@id_usuario numeric(18,0))
+RETURNS numeric(18,0)
+AS
+BEGIN
+	DECLARE	 @numeroAfiliado numeric(18,0)
+	DECLARE	 @numeroPrincipal numeric(18,0)
+	SELECT @numeroAfiliado = id_afiliado FROM HAKUNA_MATATA.Afiliado A WHERE A.id_usuario=@id_usuario
+	SET @numeroPrincipal= (SELECT @numeroAfiliado/100 as Integer)
+	RETURN @numeroPrincipal
+END
+GO
+
+--SELECT HAKUNA_MATATA.SP_dameNumeroPrincipalAfiliado (10);
+--SELECT * FROM HAKUNA_MATATA.Afiliado A WHERE A.id_afiliado=1
 
 DROP PROCEDURE HAKUNA_MATATA.SP_dameEstadoCivil;
 DROP PROCEDURE HAKUNA_MATATA.SP_dameTipoDocumento;
 DROP PROCEDURE HAKUNA_MATATA.SP_crearAfiliado
+DROP FUNCTION HAKUNA_MATATA.dameNumeroPrincipalAfiliado
