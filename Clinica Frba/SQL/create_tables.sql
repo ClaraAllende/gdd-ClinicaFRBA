@@ -117,7 +117,7 @@ habilitada bit DEFAULT 1,
 );
 
 CREATE TABLE HAKUNA_MATATA.PlanMedico (
-id_plan NUMERIC(18,0) NOT NULL,
+id_plan NUMERIC(18,0) IDENTITY(1,1) NOT NULL,
 precio_bono_consulta NUMERIC(18,0) ,
 precio_bono_farmacia NUMERIC(18,0),
 descripcion varchar(255),
@@ -125,7 +125,7 @@ habilitada bit DEFAULT 1,
 );
 
 CREATE TABLE HAKUNA_MATATA.BonoConsulta (
-id_bono NUMERIC(18,0) NOT NULL, --tuve que sacar el IDENTITY(1,1) para mantener el numero anterior
+id_bono NUMERIC(18,0) IDENTITY(1,1) NOT NULL,
 id_compra NUMERIC(18,0) NOT NULL,
 id_afiliado NUMERIC(18,0),
 id_plan NUMERIC(18,0),
@@ -136,7 +136,7 @@ habilitada bit DEFAULT 1,
 );
 
 CREATE TABLE HAKUNA_MATATA.BonoFarmacia (
-id_bono NUMERIC(18,0) NOT NULL, --tuve que sacar el IDENTITY(1,1) para mantener el numero anterior
+id_bono NUMERIC(18,0) IDENTITY(1,1) NOT NULL,
 id_compra NUMERIC(18,0) NOT NULL,
 id_afiliado NUMERIC(18,0),
 id_plan NUMERIC(18,0),
