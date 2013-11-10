@@ -86,22 +86,23 @@ INSERT INTO HAKUNA_MATATA.Afiliado (id_usuario, nombre, apellido, numero_documen
 SELECT DISTINCT U.id_usuario, M.Paciente_Nombre, M.Paciente_Apellido, M.Paciente_Dni, M.Paciente_Direccion, M.Paciente_Telefono, M.Paciente_Mail, M.Paciente_Fecha_Nac, M.Plan_Med_Codigo 
 FROM gd_esquema.Maestra M, HAKUNA_MATATA.Usuario U
 WHERE U.nombre = CAST(M.Paciente_Dni AS varchar(255))
+SET IDENTITY_INSERT HAKUNA_MATATA.Afiliado ON --Los numeros de afiliado se manejan desde la aplicacion desde aca
 
 INSERT INTO HAKUNA_MATATA.Compra (id_afiliado, fecha)
 SELECT DISTINCT A.id_afiliado, M.Compra_Bono_Fecha
 FROM HAKUNA_MATATA.Afiliado A
 JOIN gd_esquema.Maestra M ON (A.numero_documento = M.Paciente_Dni AND M.Compra_Bono_Fecha IS NOT NULL)
 
-INSERT INTO HAKUNA_MATATA.BonoFarmacia (id_bono, id_compra, id_afiliado, id_plan, precio, fecha_emision) --numero_principal lo deje en NULL porque no aplica a los de la maestra
-SELECT DISTINCT M.Bono_Farmacia_Numero, C.id_compra,A.id_afiliado, A.id_plan, M.Plan_Med_Precio_Bono_Farmacia, M.Compra_Bono_Fecha
+INSERT INTO HAKUNA_MATATA.BonoFarmacia (id_bono, id_compra, id_afiliado, id_plan, precio, fecha_emision, numero_principal)
+SELECT DISTINCT M.Bono_Farmacia_Numero, C.id_compra,A.id_afiliado, A.id_plan, M.Plan_Med_Precio_Bono_Farmacia, M.Compra_Bono_Fecha, CAST(A.id_afiliado/100 AS NUMERIC(18,0))
 FROM HAKUNA_MATATA.Afiliado A 
 LEFT JOIN HAKUNA_MATATA.Usuario U ON (A.id_usuario = U.id_usuario)
 LEFT JOIN gd_esquema.Maestra M ON (U.nombre = CAST(M.Paciente_Dni AS varchar(255)) AND M.Bono_Farmacia_Numero IS NOT NULL AND M.Compra_Bono_Fecha IS NOT NULL)
 JOIN HAKUNA_MATATA.Compra C ON (M.Compra_Bono_Fecha = C.fecha AND A.id_afiliado = C.id_afiliado)
 ORDER BY M.Bono_Farmacia_Numero
 
-INSERT INTO HAKUNA_MATATA.BonoConsulta (id_bono, id_compra, id_afiliado, id_plan, precio) --numero_principal lo deje en NULL porque no aplica a los de la maestra
-SELECT DISTINCT M.Bono_Consulta_Numero, C.id_compra,A.id_afiliado, A.id_plan, M.Plan_Med_Precio_Bono_Consulta
+INSERT INTO HAKUNA_MATATA.BonoConsulta (id_bono, id_compra, id_afiliado, id_plan, precio, numero_principal)
+SELECT DISTINCT M.Bono_Consulta_Numero, C.id_compra,A.id_afiliado, A.id_plan, M.Plan_Med_Precio_Bono_Consulta, CAST(A.id_afiliado/100 AS NUMERIC(18,0))
 FROM HAKUNA_MATATA.Afiliado A 
 LEFT JOIN HAKUNA_MATATA.Usuario U ON (A.id_usuario = U.id_usuario)
 LEFT JOIN gd_esquema.Maestra M ON (U.nombre = CAST(M.Paciente_Dni AS varchar(255)) AND M.Bono_Consulta_Numero IS NOT NULL)

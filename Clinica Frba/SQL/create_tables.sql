@@ -51,7 +51,7 @@ habilitada bit DEFAULT 1,
 );
 
 CREATE TABLE HAKUNA_MATATA.Afiliado (
-id_afiliado NUMERIC(18, 0)IDENTITY(1,1) NOT NULL,
+id_afiliado NUMERIC(18, 0)IDENTITY(001,100) NOT NULL,
 id_usuario NUMERIC(18,0),
 nombre varchar(255),
 apellido varchar (255),
