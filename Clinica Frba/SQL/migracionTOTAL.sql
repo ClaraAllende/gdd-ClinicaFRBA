@@ -107,3 +107,10 @@ LEFT JOIN HAKUNA_MATATA.Usuario U ON (A.id_usuario = U.id_usuario)
 LEFT JOIN gd_esquema.Maestra M ON (U.nombre = CAST(M.Paciente_Dni AS varchar(255)) AND M.Bono_Consulta_Numero IS NOT NULL)
 JOIN HAKUNA_MATATA.Compra C ON (M.Compra_Bono_Fecha = C.fecha AND A.id_afiliado = C.id_afiliado)
 ORDER BY M.Bono_Consulta_Numero
+
+INSERT INTO HAKUNA_MATATA.MedicamentoXBono (id_bono, id_medicamento)
+SELECT DISTINCT Ma.Bono_Farmacia_Numero, Me.id_medicamento
+FROM gd_esquema.Maestra Ma
+JOIN HAKUNA_MATATA.Medicamento Me ON(Ma.Bono_Farmacia_Medicamento = Me.descripcion
+									AND Ma.Bono_Farmacia_Numero IS NOT NULL)
+
