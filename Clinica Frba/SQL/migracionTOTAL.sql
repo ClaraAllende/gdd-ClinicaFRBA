@@ -128,3 +128,9 @@ FROM HAKUNA_MATATA.Afiliado A
 JOIN gd_esquema.Maestra M ON (A.numero_documento = M.Paciente_Dni AND M.Turno_Numero IS NOT NULL)
 ORDER BY M.Turno_Numero
 SET IDENTITY_INSERT HAKUNA_MATATA.Turno OFF
+
+INSERT INTO HAKUNA_MATATA.Consulta (id_bono, id_turno)
+SELECT DISTINCT BC.id_bono, M.Turno_Numero
+FROM HAKUNA_MATATA.Afiliado A
+JOIN gd_esquema.Maestra M ON (A.numero_documento = M.Paciente_Dni AND M.Turno_Numero IS NOT NULL AND M.Consulta_Sintomas IS NOT NULL)
+JOIN HAKUNA_MATATA.BonoConsulta BC ON (A.id_afiliado = BC.id_afiliado AND BC.id_bono = M.Bono_Consulta_Numero)
