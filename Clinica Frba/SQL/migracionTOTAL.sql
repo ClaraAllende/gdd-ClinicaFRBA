@@ -87,6 +87,7 @@ SELECT DISTINCT U.id_usuario, M.Paciente_Nombre, M.Paciente_Apellido, M.Paciente
 FROM gd_esquema.Maestra M, HAKUNA_MATATA.Usuario U
 WHERE U.nombre = CAST(M.Paciente_Dni AS varchar(255))
 
+--arreglar esto ,,
 INSERT INTO HAKUNA_MATATA.BonoConsulta (id_bono, id_afiliado, id_plan, precio) --numero_principal lo deje en NULL porque no aplica a los de la maestra
 SELECT DISTINCT M.Bono_Consulta_Numero, A.id_afiliado, A.id_plan, M.Plan_Med_Precio_Bono_Consulta
 FROM HAKUNA_MATATA.Afiliado A 
