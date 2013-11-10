@@ -19,7 +19,7 @@ ALTER TABLE HAKUNA_MATATA.BonoFarmacia ADD CONSTRAINT pk_id_bono_receta PRIMARY 
 ALTER TABLE HAKUNA_MATATA.MedicamentoXBono ADD CONSTRAINT pk_id_medicamento_bono PRIMARY KEY (id_bono,id_medicamento);
 ALTER TABLE HAKUNA_MATATA.Medicamento ADD CONSTRAINT pk_id_medicamento PRIMARY KEY (id_medicamento);
 ALTER TABLE HAKUNA_MATATA.Compra ADD CONSTRAINT pk_id_compra PRIMARY KEY (id_compra);
-ALTER TABLE HAKUNA_MATATA.BonoXCompra ADD CONSTRAINT pk_id_bono_compra PRIMARY KEY (id_bono, id_compra);
+ALTER TABLE HAKUNA_MATATA.BonoXCompra ADD CONSTRAINT pk_id_bono_compra PRIMARY KEY (id_bono_x_compra);
 ALTER TABLE HAKUNA_MATATA.Cancelacion ADD CONSTRAINT pk_id_cancelacion PRIMARY KEY (id_cancelacion);
 ALTER TABLE HAKUNA_MATATA.TipoCancelacion ADD CONSTRAINT pk_id_tipo PRIMARY KEY (id_tipo);
 ALTER TABLE HAKUNA_MATATA.Consulta ADD CONSTRAINT pk_id_consulta PRIMARY KEY (id_consulta);

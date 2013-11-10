@@ -25,8 +25,11 @@ FOREIGN KEY (id_afiliado) REFERENCES HAKUNA_MATATA.Afiliado (id_afiliado)
 ALTER TABLE HAKUNA_MATATA.BonoFarmacia ADD CONSTRAINT fk_BonoFarmacia_to_PlanMedico
 FOREIGN KEY (id_plan) REFERENCES HAKUNA_MATATA.PlanMedico (id_plan)
 ;
-ALTER TABLE HAKUNA_MATATA.BonoXCompra ADD CONSTRAINT fk_BonoXCompra_to_Bono
-FOREIGN KEY (id_bono) REFERENCES HAKUNA_MATATA.BonoConsulta (id_bono)
+ALTER TABLE HAKUNA_MATATA.BonoConsulta ADD CONSTRAINT fk_BonoConsulta_to_BonoXCompra
+FOREIGN KEY (id_bono_x_compra) REFERENCES HAKUNA_MATATA.BonoXCompra (id_bono_x_compra)
+;
+ALTER TABLE HAKUNA_MATATA.BonoFarmacia ADD CONSTRAINT fk_BonoFarmacia_to_BonoXCompra
+FOREIGN KEY (id_bono_x_compra) REFERENCES HAKUNA_MATATA.BonoXCompra (id_bono_x_compra)
 ;
 ALTER TABLE HAKUNA_MATATA.BonoXCompra ADD CONSTRAINT fk_BonoXCompra_to_Compra
 FOREIGN KEY (id_compra) REFERENCES HAKUNA_MATATA.Compra (id_compra)
