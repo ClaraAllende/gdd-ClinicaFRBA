@@ -7,10 +7,11 @@ ALTER TABLE HAKUNA_MATATA.BonoConsulta DROP CONSTRAINT fk_BonoConsulta_to_Afilia
 ALTER TABLE HAKUNA_MATATA.BonoConsulta DROP CONSTRAINT fk_BonoConsulta_to_PlanMedico;
 ALTER TABLE HAKUNA_MATATA.BonoFarmacia DROP CONSTRAINT fk_BonoFarmacia_to_Afiliado;
 ALTER TABLE HAKUNA_MATATA.BonoFarmacia DROP CONSTRAINT fk_BonoFarmacia_to_PlanMedico;
-ALTER TABLE HAKUNA_MATATA.BonoXCompra DROP CONSTRAINT fk_BonoXCompra_to_Bono;
-ALTER TABLE HAKUNA_MATATA.BonoXCompra DROP CONSTRAINT fk_BonoXCompra_to_Compra;
 ALTER TABLE HAKUNA_MATATA.Cancelacion DROP CONSTRAINT fk_Cancelacion_to_Turno;
 ALTER TABLE HAKUNA_MATATA.Cancelacion DROP CONSTRAINT fk_Cancelacion_to_TipoCancelacion;
+--fks que referencian a HAKUNA_MATATA.BonoXCompra
+ALTER TABLE HAKUNA_MATATA.BonoConsulta DROP CONSTRAINT fk_BonoConsulta_to_Compra;
+ALTER TABLE HAKUNA_MATATA.BonoFarmacia DROP CONSTRAINT fk_BonoFarmacia_to_Compra;
 --fks que referencian a HAKUNA_MATATA.Usuario id_usuarios
 ALTER TABLE HAKUNA_MATATA.UsuarioXRol DROP CONSTRAINT fk_UsuarioXRol_to_Usuario;
 ALTER TABLE HAKUNA_MATATA.Profesional DROP CONSTRAINT fk_Profesional_to_Usuario;
@@ -54,7 +55,6 @@ DROP TABLE HAKUNA_MATATA.BonoConsulta;
 DROP TABLE HAKUNA_MATATA.BonoFarmacia;
 DROP TABLE HAKUNA_MATATA.MedicamentoXBono;
 DROP TABLE HAKUNA_MATATA.Compra;
-DROP TABLE HAKUNA_MATATA.BonoXCompra;
 DROP TABLE HAKUNA_MATATA.Cancelacion;
 DROP TABLE HAKUNA_MATATA.TipoCancelacion;
 DROP TABLE HAKUNA_MATATA.Consulta;
