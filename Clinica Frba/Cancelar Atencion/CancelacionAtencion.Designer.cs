@@ -1,6 +1,7 @@
-﻿namespace Clinica_Frba.NewFolder15
+﻿using System.Windows.Forms;
+namespace Clinica_Frba.NewFolder7
 {
-    partial class Form1
+    partial class FormCancelaciones: Form
     {
         /// <summary>
         /// Required designer variable.

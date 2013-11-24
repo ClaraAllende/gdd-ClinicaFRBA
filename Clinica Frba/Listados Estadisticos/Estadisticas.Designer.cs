@@ -1,6 +1,7 @@
-﻿namespace Clinica_Frba.NewFolder14
+﻿using System.Windows.Forms;
+namespace Clinica_Frba.NewFolder9
 {
-    partial class Form1
+    partial class FormEstadisticas: Form
     {
         /// <summary>
         /// Required designer variable.

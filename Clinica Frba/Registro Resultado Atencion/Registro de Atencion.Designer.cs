@@ -1,6 +1,7 @@
-﻿namespace Clinica_Frba
+﻿using System.Windows.Forms;
+namespace Clinica_Frba.NewFolder6
 {
-    partial class Form1
+    partial class FormResultadoAtencion: Form
     {
         /// <summary>
         /// Required designer variable.
@@ -36,4 +37,3 @@
         #endregion
     }
 }
-

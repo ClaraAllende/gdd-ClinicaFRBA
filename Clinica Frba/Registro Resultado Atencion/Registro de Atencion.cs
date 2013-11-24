@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Clinica_Frba.NewFolder15
+namespace Clinica_Frba.NewFolder6
 {
-    public partial class Form1 : Form
+    public partial class FormResultadoAtencion : Form
     {
-        public Form1()
+        public FormResultadoAtencion()
         {
             InitializeComponent();
         }

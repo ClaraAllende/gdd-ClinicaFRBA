@@ -1,6 +1,6 @@
-﻿namespace Clinica_Frba.NewFolder11
+﻿namespace Clinica_Frba
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(292, 266);
+            this.Name = "Form1";
+            this.Text = "Clinica Medica";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
+

@@ -1,6 +1,7 @@
-﻿namespace Clinica_Frba.NewFolder3
+﻿using System.Windows.Forms;
+namespace Clinica_Frba.NewFolder3
 {
-    partial class Form1
+    partial class FormBonos: Form
     {
         /// <summary>
         /// Required designer variable.

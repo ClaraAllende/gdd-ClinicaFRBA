@@ -1,6 +1,7 @@
-﻿namespace Clinica_Frba.NewFolder4
+﻿using System.Windows.Forms;
+namespace Clinica_Frba.NewFolder4
 {
-    partial class Form1
+    partial class FormTurnos: Form
     {
         /// <summary>
         /// Required designer variable.

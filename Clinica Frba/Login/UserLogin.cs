@@ -6,14 +6,19 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Clinica_Frba.Registro_de_Usuario;
 
-namespace Clinica_Frba.NewFolder10
+namespace Clinica_Frba.Login
 {
-    public partial class Form1 : Form
+    public partial class UserLoginWindow : Form
     {
-        public Form1()
+        public void Login()
         {
             InitializeComponent();
+            Usuario currentUser = new Usuario();
+            textBox1.DataBindings.Add("Text", currentUser, "Usuario");
+            textBox2.DataBindings.Add("Text", currentUser, "Password");
+            currentUser.login();
         }
     }
 }

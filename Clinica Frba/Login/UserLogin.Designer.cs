@@ -1,6 +1,6 @@
-﻿namespace Clinica_Frba.NewFolder10
+﻿namespace Clinica_Frba.Login
 {
-    partial class Form1
+    partial class UserLoginWindow
     {
         /// <summary>
         /// Required designer variable.

@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Clinica_Frba.NewFolder1
 {
-    public partial class Form1 : Form
+    public partial class FormRoles : Form
     {
-        public Form1()
+        public FormRoles()
         {
             InitializeComponent();
         }

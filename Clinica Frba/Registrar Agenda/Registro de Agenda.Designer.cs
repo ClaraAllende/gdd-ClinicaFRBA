@@ -1,6 +1,7 @@
-﻿namespace Clinica_Frba.NewFolder6
+﻿using System.Windows.Forms;
+namespace Clinica_Frba.NewFolder2
 {
-    partial class Form1
+    partial class FormAgenda:Form
     {
         /// <summary>
         /// Required designer variable.

@@ -51,15 +51,21 @@
     <Compile Include="Abm de Afiliado\Afiliado.cs" />
     <Compile Include="Abm de Especialidades Medicas\Especialidad.cs" />
     <Compile Include="Abm de Planes\PlanMedico.cs" />
+    <Compile Include="Abm de Profesional\Profesionales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm de Profesional\Profesionales.Designer.cs">
+      <DependentUpon>Profesionales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm de Profesional\Profesional.cs" />
     <Compile Include="Abm de Rol\Funcionalidad.cs" />
     <Compile Include="Abm de Rol\Rol.cs" />
     <Compile Include="DatosPersonales.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\UserLogin.cs">
       <SubType>Form</SubType>
@@ -68,11 +74,11 @@
       <DependentUpon>UserLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Pedir Turno\Turno.cs" />
-    <Compile Include="Registro de Usuario\Form1.cs">
+    <Compile Include="Registro de Usuario\Registro de Usuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro de Usuario\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Registro de Usuario\Registro de Usuario.Designer.cs">
+      <DependentUpon>Registro de Usuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm de Afiliado\Administracion de Afiliados.cs">
       <SubType>Form</SubType>
@@ -80,23 +86,17 @@
     <Compile Include="Abm de Afiliado\Administracion de Afiliados.Designer.cs">
       <DependentUpon>Administracion de Afiliados.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm de Profesional\Form1.cs">
+    <Compile Include="Abm de Especialidades Medicas\EspecialidadesMedicas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm de Profesional\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm de Especialidades Medicas\EspecialidadesMedicas.Designer.cs">
+      <DependentUpon>EspecialidadesMedicas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm de Especialidades Medicas\Form1.cs">
+    <Compile Include="Abm de Planes\AbmPlanes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm de Especialidades Medicas\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Abm de Planes\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Abm de Planes\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm de Planes\AbmPlanes.Designer.cs">
+      <DependentUpon>AbmPlanes.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm de Rol\Administrador de Roles.cs">
       <SubType>Form</SubType>
@@ -104,65 +104,77 @@
     <Compile Include="Abm de Rol\Administrador de Roles.Designer.cs">
       <DependentUpon>Administrador de Roles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registrar Agenda\Form1.cs">
+    <Compile Include="Registrar Agenda\Registro de Agenda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registrar Agenda\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Registrar Agenda\Registro de Agenda.Designer.cs">
+      <DependentUpon>Registro de Agenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compra de Bono\Form1.cs">
+    <Compile Include="Compra de Bono\CompraDeBonos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Compra de Bono\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Compra de Bono\CompraDeBonos.Designer.cs">
+      <DependentUpon>CompraDeBonos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pedir Turno\Form1.cs">
+    <Compile Include="Pedir Turno\ABM turno.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pedir Turno\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Pedir Turno\ABM turno.Designer.cs">
+      <DependentUpon>ABM turno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registro de LLegada\Form1.cs">
+    <Compile Include="Registro de LLegada\Registro de Llegada de Paciente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro de LLegada\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Registro de LLegada\Registro de Llegada de Paciente.Designer.cs">
+      <DependentUpon>Registro de Llegada de Paciente.cs</DependentUpon>
     </Compile>
     <Compile Include="Registro de Usuario\Usuario.cs" />
-    <Compile Include="Registro Resultado Atencion\Form1.cs">
+    <Compile Include="Registro Resultado Atencion\Registro de Atencion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro Resultado Atencion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Registro Resultado Atencion\Registro de Atencion.Designer.cs">
+      <DependentUpon>Registro de Atencion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cancelar Atencion\Form1.cs">
+    <Compile Include="Cancelar Atencion\CancelacionAtencion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cancelar Atencion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Cancelar Atencion\CancelacionAtencion.Designer.cs">
+      <DependentUpon>CancelacionAtencion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generar Receta\Form1.cs">
+    <Compile Include="Generar Receta\GeneracionReceta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Generar Receta\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Generar Receta\GeneracionReceta.Designer.cs">
+      <DependentUpon>GeneracionReceta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Listados Estadisticos\Form1.cs">
+    <Compile Include="Listados Estadisticos\Estadisticas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Listados Estadisticos\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Listados Estadisticos\Estadisticas.Designer.cs">
+      <DependentUpon>Estadisticas.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Abm de Afiliado\Administracion de Afiliados.resx">
       <DependentUpon>Administracion de Afiliados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm de Profesional\Profesionales.resx">
+      <DependentUpon>Profesionales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm de Rol\Administrador de Roles.resx">
       <DependentUpon>Administrador de Roles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Compra de Bono\CompraDeBonos.resx">
+      <DependentUpon>CompraDeBonos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\UserLogin.resx">
       <DependentUpon>UserLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedir Turno\ABM turno.resx">
+      <DependentUpon>ABM turno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -173,6 +185,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
