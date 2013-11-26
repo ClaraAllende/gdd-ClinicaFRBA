@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -60,6 +61,8 @@
     <Compile Include="Abm de Profesional\Profesional.cs" />
     <Compile Include="Abm de Rol\Funcionalidad.cs" />
     <Compile Include="Abm de Rol\Rol.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="DBConnection.cs" />
     <Compile Include="DatosPersonales.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -195,6 +198,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

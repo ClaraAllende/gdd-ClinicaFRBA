@@ -9,7 +9,6 @@ namespace Clinica_Frba.Registro_de_Usuario
 {
     class Usuario : INotifyPropertyChanged
     {
-        Rol rol;
         private int loginAttempsCount;
         private string username;
         public string Username
@@ -39,16 +38,5 @@ namespace Clinica_Frba.Registro_de_Usuario
             if (handler != null) handler(this, propertyChangedEventArgs);
         }
 
-        public void login()
-        {
-            //llamar al script
-           // if (!true) loginAttempsCount++;
-            if (loginAttempsCount == 3)
-            {
-                //block?
-                //reset counter
-                loginAttempsCount = 0;
-            }
-        }
     }
     }
