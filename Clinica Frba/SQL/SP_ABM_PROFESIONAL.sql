@@ -167,6 +167,23 @@ BEGIN
 END
 GO
 
+--LA BAJA SE HACE POR LA MATRICULA
+CREATE PROCEDURE HAKUNA_MATATA.SP_baja_profesional
+	(@matricula NUMERIC(18, 0))
+
+AS
+BEGIN
+
+	UPDATE HAKUNA_MATATA.Profesional
+	SET habilitada = 0
+	WHERE matricula = @matricula
+	
+	-- FALTA LA PARTE DE DAR DE BAJA LOS TURNOS!!!!!!!!!
+	
+END
+GO
+
 --DROP PROCEDURE HAKUNA_MATATA.SP_alta_profesional
 --DROP PROCEDURE HAKUNA_MATATA.SP_modificar_profesional
+--DROP PROCEDURE HAKUNA_MATATA.SP_baja_profesional
 --DROP TYPE HAKUNA_MATATA.Especialidades
