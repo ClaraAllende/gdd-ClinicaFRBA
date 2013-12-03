@@ -125,7 +125,6 @@ BEGIN
 	WHERE @descripcion_tipo_documento = descripcion
 		AND habilitada = 1
 	
-	SET IDENTITY_INSERT HAKUNA_MATATA.Profesional ON -- para insertar el numero de matricula
 	UPDATE HAKUNA_MATATA.Profesional
 	SET	 id_usuario = @id_usuario,
 		 nombre = @nombre,
@@ -138,7 +137,6 @@ BEGIN
 		 fecha_nacimiento = @fecha_nacimiento,
 		 sexo = @sexo
 	WHERE @matricula = matricula
-	SET IDENTITY_INSERT HAKUNA_MATATA.Profesional OFF
 	
 	UPDATE HAKUNA_MATATA.EspecialidadXProfesional
 	SET habilitada = 0
