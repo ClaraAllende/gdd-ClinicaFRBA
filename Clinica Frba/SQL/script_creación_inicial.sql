@@ -85,6 +85,7 @@ fecha_nacimiento datetime,
 sexo bit DEFAULT NULL,
 id_estado_civil NUMERIC(18,0) DEFAULT NULL,
 id_plan NUMERIC(18,0),
+cantidad_familiares_a_cargo NUMERIC(18,0),
 habilitada bit DEFAULT 1,
 );
 
