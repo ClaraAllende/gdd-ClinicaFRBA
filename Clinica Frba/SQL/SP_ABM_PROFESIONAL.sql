@@ -29,10 +29,12 @@ BEGIN
 	SELECT TOP 1 @id_usuario = id_usuario
 	FROM HAKUNA_MATATA.Usuario
 	WHERE @nombre_usuario = nombre
+		AND habilitada = 1
 	
 	SELECT TOP 1 @id_tipo_documento = id_tipo_documento
 	FROM HAKUNA_MATATA.TipoDocumento
 	WHERE @descripcion_tipo_documento = descripcion
+		AND habilitada = 1
 	
 	SET IDENTITY_INSERT HAKUNA_MATATA.Profesional ON -- para insertar el numero de matricula
 	INSERT INTO HAKUNA_MATATA.Profesional	(matricula,
@@ -74,6 +76,7 @@ BEGIN
 		SELECT TOP 1 @id_especialidad = id_especialidad
 		FROM HAKUNA_MATATA.Especialidad
 		WHERE @descripcion_especialidad = descripcion
+			AND habilitada = 1
 		
 		INSERT INTO HAKUNA_MATATA.EspecialidadXProfesional(matricula, id_especialidad)
 		VALUES(@matricula, @id_especialidad)
@@ -115,10 +118,12 @@ BEGIN
 	SELECT TOP 1 @id_usuario = id_usuario
 	FROM HAKUNA_MATATA.Usuario
 	WHERE @nombre_usuario = nombre
+		AND habilitada = 1
 	
 	SELECT TOP 1 @id_tipo_documento = id_tipo_documento
 	FROM HAKUNA_MATATA.TipoDocumento
 	WHERE @descripcion_tipo_documento = descripcion
+		AND habilitada = 1
 	
 	SET IDENTITY_INSERT HAKUNA_MATATA.Profesional ON -- para insertar el numero de matricula
 	UPDATE HAKUNA_MATATA.Profesional
@@ -153,6 +158,7 @@ BEGIN
 		SELECT TOP 1 @id_especialidad = id_especialidad
 		FROM HAKUNA_MATATA.Especialidad
 		WHERE @descripcion_especialidad = descripcion
+			AND habilitada = 1
 		
 		INSERT INTO HAKUNA_MATATA.EspecialidadXProfesional(matricula, id_especialidad)
 		VALUES(@matricula, @id_especialidad)
