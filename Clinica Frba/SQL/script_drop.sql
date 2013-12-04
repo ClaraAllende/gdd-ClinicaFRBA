@@ -39,6 +39,7 @@ ALTER TABLE HAKUNA_MATATA.Profesional DROP CONSTRAINT fk_Profesional_to_TipoDocu
 ALTER TABLE HAKUNA_MATATA.EspecialidadXProfesional DROP CONSTRAINT fk_EspecialidadXProfesional_to_Especialidad;
 ALTER TABLE HAKUNA_MATATA.Especialidad DROP CONSTRAINT fk_Especialidad_to_TipoEspecialidad;
 ALTER TABLE HAKUNA_MATATA.EspecialidadXProfesional DROP CONSTRAINT fk_EspecialidadXProfesional_to_Profesional;
+ALTER TABLE HAKUNA_MATATA.AuditoriaAfiliado DROP CONSTRAINT fk_AuditoriaAfiliado_to_Afiliado;
 
 -------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------
@@ -69,7 +70,7 @@ DROP TABLE HAKUNA_MATATA.Cancelacion;
 DROP TABLE HAKUNA_MATATA.TipoCancelacion;
 DROP TABLE HAKUNA_MATATA.Consulta;
 DROP TABLE HAKUNA_MATATA.Medicamento;
-DROP TABLE HAKUNA_MATATA.Auditoria;
+DROP TABLE HAKUNA_MATATA.AuditoriaAfiliado;
 
 -------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------
