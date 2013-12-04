@@ -150,6 +150,7 @@ BEGIN
 END
 GO
 
+-------------------------------------------------------------------------------------------------------------------
 --LA BAJA SE HACE POR EL ID_AFILIADO
 CREATE PROCEDURE HAKUNA_MATATA.SP_baja_afiliado
 	(@id_afiliado NUMERIC(18, 0))
@@ -166,6 +167,47 @@ BEGIN
 END
 GO
 
+--------------------------------------------------------------------------------------------------------------------
+CREATE TRIGGER TR_modificar_baja_afiliado
+ON HAKUNA_MATATA.Afiliado FOR UPDATE
+AS
+BEGIN
+	DECLARE @fecha DATETIME
+	DECLARE @id_afiliado NUMERIC(18,0)
+	DECLARE @habilitada BIT
+	
+	IF(UPDATE(habilitada)) -- se dio de baja
+	BEGIN
+		SET @fecha = CURRENT_TIMESTAMP
+		
+		DECLARE CUR_auditoria CURSOR
+		FOR SELECT id_afiliado, habilitada
+			FROM INSERTED
+			
+		OPEN CUR_auditoria
+		FETCH CUR_auditoria 
+		INTO @id_afiliado, @habilitada
+		
+		WHILE @@FETCH_STATUS = 0
+		BEGIN
+			IF(@habilitada = 0)
+			BEGIN
+				INSERT INTO HAKUNA_MATATA.Auditoria(fecha, descripcion, id_afiliado)
+				VALUES(@fecha, 'BAJA AFILIADO', @id_afiliado)
+			
+				FETCH CUR_auditoria
+				INTO @id_afiliado, @habilitada
+			END
+		END
+		
+		CLOSE CUR_auditoria
+		DEALLOCATE CUR_auditoria
+	END
+END
+
+
+
 --DROP PROCEDURE HAKUNA_MATATA.SP_alta_afiliado
 --DROP PROCEDURE HAKUNA_MATATA.SP_modificar_afiliado
 --DROP PROCEDURE HAKUNA_MATATA.SP_baja_afiliado
+--DROP TRIGGER HAKUNA_MATATA.TR_modificar_baja_afiliado
