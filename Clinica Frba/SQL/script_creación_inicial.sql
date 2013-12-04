@@ -203,7 +203,7 @@ habilitada bit DEFAULT 1,
 CREATE TABLE HAKUNA_MATATA.Consulta (
 id_bono NUMERIC(18,0),
 id_consulta NUMERIC(18,0)IDENTITY(1,1) NOT NULL,
-fecha_y_hora datetime,
+fecha_y_hora DATETIME,
 id_turno NUMERIC(18,0),
 sintoma VARCHAR(255),
 diagnostico VARCHAR(255),
@@ -214,6 +214,13 @@ CREATE TABLE HAKUNA_MATATA.Medicamento (
 id_medicamento NUMERIC(18,0)IDENTITY(1,1) NOT NULL,
 descripcion varchar(255),
 habilitada bit DEFAULT 1,
+);
+
+CREATE TABLE HAKUNA_MATATA.Auditoria (
+id_auditoria NUMERIC(18,0) IDENTITY(1,1) NOT NULL,
+fecha DATETIME,
+descripcion VARCHAR(255),
+habilitada BIT DEFAULT 1,
 );
 
 -------------------------------------------------------------------------------------
@@ -246,6 +253,7 @@ ALTER TABLE HAKUNA_MATATA.Compra ADD CONSTRAINT pk_id_compra PRIMARY KEY (id_com
 ALTER TABLE HAKUNA_MATATA.Cancelacion ADD CONSTRAINT pk_id_cancelacion PRIMARY KEY (id_cancelacion);
 ALTER TABLE HAKUNA_MATATA.TipoCancelacion ADD CONSTRAINT pk_id_tipo PRIMARY KEY (id_tipo);
 ALTER TABLE HAKUNA_MATATA.Consulta ADD CONSTRAINT pk_id_consulta PRIMARY KEY (id_consulta);
+ALTER TABLE HAKUNA_MATATA.Auditoria ADD CONSTRAINT pk_id_auditoria PRIMARY KEY (id_auditoria);
 
 -------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------

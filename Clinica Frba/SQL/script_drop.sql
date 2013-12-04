@@ -69,6 +69,7 @@ DROP TABLE HAKUNA_MATATA.Cancelacion;
 DROP TABLE HAKUNA_MATATA.TipoCancelacion;
 DROP TABLE HAKUNA_MATATA.Consulta;
 DROP TABLE HAKUNA_MATATA.Medicamento;
+DROP TABLE HAKUNA_MATATA.Auditoria;
 
 -------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------
