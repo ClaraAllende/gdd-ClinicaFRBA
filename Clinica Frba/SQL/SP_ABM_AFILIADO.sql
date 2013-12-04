@@ -106,7 +106,8 @@ CREATE PROCEDURE HAKUNA_MATATA.SP_modificar_afiliado
 	 @descripcion_estado_civil VARCHAR(255), --buscarlo en la tabla EstadoCivil
 	 @cantidad_familiares_a_cargo NUMERIC(18,0),
 	 @descripcion_plan_medico VARCHAR(255), --buscarlo en la tabla PlanMedico
-	 @id_afiliado NUMERIC(18,0)
+	 @id_afiliado NUMERIC(18,0),
+	 @modificacion_plan_medico VARCHAR(255) -- si no se modifica se manda en null y listo
 	)
 
 AS
@@ -115,6 +116,7 @@ BEGIN
 	DECLARE @id_tipo_documento NUMERIC(18,0)
 	DECLARE @id_estado_civil NUMERIC(18,0)
 	DECLARE @id_plan_medico NUMERIC(18,0)
+	DECLARE @fecha DATETIME
 	
 	SELECT TOP 1 @id_usuario = id_usuario
 	FROM HAKUNA_MATATA.Usuario
@@ -146,6 +148,13 @@ BEGIN
 		id_plan = id_plan,
 		cantidad_familiares_a_cargo = @cantidad_familiares_a_cargo
 	WHERE @id_afiliado = id_afiliado
+	
+	IF(@modificacion_plan_medico IS NOT NULL)
+	BEGIN
+		SET @fecha = CURRENT_TIMESTAMP
+		INSERT INTO HAKUNA_MATATA.AuditoriaAfiliado(id_afiliado, descripcion, fecha)
+		VALUES (@id_afiliado, @modificacion_plan_medico, @fecha)
+	END
 	
 END
 GO
