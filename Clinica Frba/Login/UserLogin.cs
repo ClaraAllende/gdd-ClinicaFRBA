@@ -16,7 +16,7 @@ namespace Clinica_Frba.Login
     {
         public string usr;
         public string pass;
-        public int loginAttemptsCount;
+        public int loginAttemptsCount=0;
 
         private static string encript(string password)
         {
@@ -59,17 +59,10 @@ namespace Clinica_Frba.Login
             if ((textBox1.Text != "") && (textBox2.Text != "")) button1.Enabled = true;
             else button1.Enabled = false;
         }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            if ((textBox1.Text != "") && (textBox2.Text != "")) button1.Enabled = true;
-            else button1.Enabled = true;
-        }
-        //No se por que esto no funciona.
  
         private void button1_Click(object sender, EventArgs e)
         {
-            //mandar la querry SP_login(usuario,contrasenia)
+            //mandar la querry SP_login(usr,pass)
         }
 
 
@@ -80,7 +73,8 @@ namespace Clinica_Frba.Login
 
         private void textBox2_TextChanged_1(object sender, EventArgs e)
         {
-
+            if ((textBox1.Text != "") && (textBox2.Text != "")) button1.Enabled = true;
+            else button1.Enabled = true;
         }
     }
 }
