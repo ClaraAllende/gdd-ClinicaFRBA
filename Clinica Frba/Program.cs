@@ -10,16 +10,11 @@ namespace Clinica_Frba
 {
     public static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new MainWindow());
             Application.Run(new Login.UserLoginWindow());
         }
     }
