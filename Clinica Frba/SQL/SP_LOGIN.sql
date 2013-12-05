@@ -8,11 +8,13 @@ BEGIN
 						id_rol numeric(18,0),
 						descripcion varchar(255)
 						)	
-	SET @id_usuario = (SELECT id_usuario FROM HAKUNA_MATATA.Usuario U WHERE nombre = @nombre AND contrasenia = @contrasenia)
+	SET @id_usuario = (SELECT id_usuario FROM HAKUNA_MATATA.Usuario U WHERE U.nombre = @nombre AND U.contrasenia = @contrasenia)
+	IF(@@ROWCOUNT=0)
+		RAISERROR ('No se encuentra el usuario',-1,-1, 'El usuario no existe o bien la contraseña es incorrecta')
+		
 	BEGIN	
 		INSERT @tablaRoles
 		EXEC HAKUNA_MATATA.dameRolesDeUsuario @id_usuario
-		
 	END	
 	RETURN 
 
