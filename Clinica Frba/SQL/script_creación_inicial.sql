@@ -435,7 +435,7 @@ WHERE P.numero_documento= M.Medico_Dni AND
 --------------------Funcionalidad-----------------------
 --------------------------------------------------------	  
 INSERT HAKUNA_MATATA.Funcionalidad (nombre)
-VALUES ('Crear usuario'),('Modificar usuario'),('Dar de baja usuario')
+VALUES ('ABM Rol'),('ABM Afiliado'),('ABM Profesional'),('ABM Planes'),('Agenda Médico'),('Comprar Bonos'),('Pedir Turnos'),('Llegada AM'),('Resultado AM'),('Cancelación AM'),('Generar Receta'),('Estadísticas')
 
 --------------------------------------------------------
 ------------------------Rol-----------------------------
