@@ -18,7 +18,7 @@ namespace Clinica_Frba.Login
         public string pass;
         public string anterior;
         public int loginAttemptsCount;
-        public bool onStart;
+  
 
         private static string encript(string password)
         {
@@ -31,6 +31,7 @@ namespace Clinica_Frba.Login
             }
             return hash;
         }
+
 
        public void agregarUsuario(string usuario, string pswd){
            List<SqlParameter> ps = createQueryParameters(usuario, pswd);
@@ -52,20 +53,6 @@ namespace Clinica_Frba.Login
 
                //bloquear todo.
 
-              usr = textBox1.Text.ToString();
-              pass = textBox2.Text.ToString();
-            //TODO: esto lo valida antes de abrir la ventana, y hay que poner un observer para 
-            //el property changed.
-              if (String.IsNullOrEmpty(usr) || String.IsNullOrEmpty(pass))
-              {
-                  MessageBox.Show("Usuario o password incorrecto. Intente de nuevo.",
-                      "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                  return;
-              }
-              else
-              {
-                      this.button1.Enabled = true;
-              }
         }
 
         private void login()
@@ -96,13 +83,29 @@ namespace Clinica_Frba.Login
                 {
                     loginAttemptsCount = 1;
                     anterior = usr;
+                    MessageBox.Show("Usuario o password incorrecto. Intente de nuevo.",
+                   "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
         }
 
+
         protected void textBox1_TextChanged(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text)) button1.Enabled = true;
+            else button1.Enabled = false;
+        }
 
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text)) button1.Enabled = true;
+            else button1.Enabled = true;
         }
 
         private void button1_Click(object sender, EventArgs e)

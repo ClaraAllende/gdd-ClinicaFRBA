@@ -85,6 +85,7 @@ fecha_nacimiento datetime,
 sexo bit DEFAULT NULL,
 id_estado_civil NUMERIC(18,0) DEFAULT NULL,
 id_plan NUMERIC(18,0),
+cantidad_familiares_a_cargo NUMERIC(18,0),
 habilitada bit DEFAULT 1,
 );
 
@@ -202,7 +203,7 @@ habilitada bit DEFAULT 1,
 CREATE TABLE HAKUNA_MATATA.Consulta (
 id_bono NUMERIC(18,0),
 id_consulta NUMERIC(18,0)IDENTITY(1,1) NOT NULL,
-fecha_y_hora datetime,
+fecha_y_hora DATETIME,
 id_turno NUMERIC(18,0),
 sintoma VARCHAR(255),
 diagnostico VARCHAR(255),
@@ -213,6 +214,14 @@ CREATE TABLE HAKUNA_MATATA.Medicamento (
 id_medicamento NUMERIC(18,0)IDENTITY(1,1) NOT NULL,
 descripcion varchar(255),
 habilitada bit DEFAULT 1,
+);
+
+CREATE TABLE HAKUNA_MATATA.AuditoriaAfiliado (
+id_auditoria NUMERIC(18,0) IDENTITY(1,1) NOT NULL,
+id_afiliado NUMERIC(18,0) NOT NULL,
+fecha DATETIME,
+descripcion VARCHAR(255),
+habilitada BIT DEFAULT 1,
 );
 
 -------------------------------------------------------------------------------------
@@ -245,6 +254,7 @@ ALTER TABLE HAKUNA_MATATA.Compra ADD CONSTRAINT pk_id_compra PRIMARY KEY (id_com
 ALTER TABLE HAKUNA_MATATA.Cancelacion ADD CONSTRAINT pk_id_cancelacion PRIMARY KEY (id_cancelacion);
 ALTER TABLE HAKUNA_MATATA.TipoCancelacion ADD CONSTRAINT pk_id_tipo PRIMARY KEY (id_tipo);
 ALTER TABLE HAKUNA_MATATA.Consulta ADD CONSTRAINT pk_id_consulta PRIMARY KEY (id_consulta);
+ALTER TABLE HAKUNA_MATATA.AuditoriaAfiliado ADD CONSTRAINT pk_id_auditoria PRIMARY KEY (id_auditoria);
 
 -------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------
@@ -346,6 +356,9 @@ FOREIGN KEY (id_especialidad) REFERENCES HAKUNA_MATATA.Especialidad (id_especial
 ALTER TABLE HAKUNA_MATATA.EspecialidadXProfesional ADD CONSTRAINT fk_EspecialidadXProfesional_to_Profesional
 FOREIGN KEY (matricula) REFERENCES HAKUNA_MATATA.Profesional (matricula)
 ;
+ALTER TABLE HAKUNA_MATATA.AuditoriaAfiliado ADD CONSTRAINT fk_AuditoriaAfiliado_to_Afiliado
+FOREIGN KEY (id_afiliado) REFERENCES HAKUNA_MATATA.Afiliado (id_afiliado)
+;
 
 -------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------
@@ -422,7 +435,7 @@ WHERE P.numero_documento= M.Medico_Dni AND
 --------------------Funcionalidad-----------------------
 --------------------------------------------------------	  
 INSERT HAKUNA_MATATA.Funcionalidad (nombre)
-VALUES ('Crear usuario'),('Modificar usuario'),('Dar de baja usuario')
+VALUES ('ABM Rol'),('ABM Afiliado'),('ABM Profesional'),('ABM Planes'),('Agenda Médico'),('Comprar Bonos'),('Pedir Turnos'),('Llegada AM'),('Resultado AM'),('Cancelación AM'),('Generar Receta'),('Estadísticas')
 
 --------------------------------------------------------
 ------------------------Rol-----------------------------

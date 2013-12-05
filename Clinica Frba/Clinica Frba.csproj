@@ -59,6 +59,12 @@
       <DependentUpon>Profesionales.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm de Profesional\Profesional.cs" />
+    <Compile Include="Abm de Rol\Alta-Modificacion Rol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm de Rol\Alta-Modificacion Rol.Designer.cs">
+      <DependentUpon>Alta-Modificacion Rol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm de Rol\Funcionalidad.cs" />
     <Compile Include="Abm de Rol\Rol.cs" />
     <Compile Include="Configuration.cs" />
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm de Rol\Administrador de Roles.resx">
       <DependentUpon>Administrador de Roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm de Rol\Alta-Modificacion Rol.resx">
+      <DependentUpon>Alta-Modificacion Rol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compra de Bono\CompraDeBonos.resx">
       <DependentUpon>CompraDeBonos.cs</DependentUpon>
