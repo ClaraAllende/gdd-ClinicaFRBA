@@ -30,6 +30,7 @@ namespace Clinica_Frba.Login
             return hash;
         }
 
+
        public void agregarUsuario(string usuario, string pswd){
             List<SqlParameter> ps = new List<SqlParameter>();
             ps.Add(new SqlParameter("nombre", usuario));
@@ -53,7 +54,31 @@ namespace Clinica_Frba.Login
         }
 
 
-        protected void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if ((textBox1.Text != "") && (textBox2.Text != "")) button1.Enabled = true;
+            else button1.Enabled = false;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if ((textBox1.Text != "") && (textBox2.Text != "")) button1.Enabled = true;
+            else button1.Enabled = true;
+        }
+        //No se por que esto no funciona.
+ 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //mandar la querry SP_login(usuario,contrasenia)
+        }
+
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
         {
 
         }
