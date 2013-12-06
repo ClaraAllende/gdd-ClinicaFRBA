@@ -27,16 +27,17 @@ namespace Clinica_Frba.Login
             byte[] cr = encripter.ComputeHash(Encoding.UTF8.GetBytes(password), 0, Encoding.UTF8.GetByteCount(password));
             foreach (byte bit in cr)
             {
-                hash += bit.ToString("x2");
+                hash += bit.ToString();
             }
             return hash;
         }
 
 
-       public void agregarUsuario(string usuario, string pswd){
+       public DataTable queryLogin(string usuario, string pswd){
            List<SqlParameter> ps = createQueryParameters(usuario, pswd);
             DataTable user = DBConnection.getInstance.ExecuteQuery("[HAKUNA_MATATA].[SP_LOGIN]", ps);
-        }
+            return user; 
+       }
 
        private static List<SqlParameter> createQueryParameters(string usuario, string pswd)
        {
@@ -57,9 +58,8 @@ namespace Clinica_Frba.Login
 
         private void login()
         {
-            createQueryParameters(usr, pass);
-            //query db for right pass
-            if (false)
+           
+            if (queryLogin(textBox1.Text, textBox2.Text) != null)
             {
                 //login correcto
                 //habilitar funcionalidades
