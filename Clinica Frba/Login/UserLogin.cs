@@ -35,7 +35,7 @@ namespace Clinica_Frba.Login
 
        public DataTable queryLogin(string usuario, string pswd){
            List<SqlParameter> ps = createQueryParameters(usuario, pswd);
-            DataTable user = DBConnection.getInstance.ExecuteQuery("[HAKUNA_MATATA].[SP_LOGIN]", ps);
+            DataTable user = DBConnection.getInstance.ExecuteQuery("HAKUNA_MATATA.SP_login", ps);
             return user; 
        }
 
