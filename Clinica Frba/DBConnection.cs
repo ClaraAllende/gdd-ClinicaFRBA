@@ -25,27 +25,21 @@ namespace Clinica_Frba
             }
         }
 
-        public DataTable ExecuteQuery(string procedureName, List<SqlParameter> parameters){
-        SqlDataAdapter adapter = null;
-        try
+        public DataTable ExecuteQuery(string procedureName, List<SqlParameter> parameters)
         {
-            persistentConnection.Open();
-            adapter = new SqlDataAdapter(procedureName, persistentConnection);
-            adapter.SelectCommand.Parameters.AddRange(parameters.ToArray());
-            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-            DataTable data = new DataTable();
-            adapter.Fill(data);
-            return (data.Rows.Count > 0) ? data : null;
-        }
-        catch (Exception e)
-        {
-            throw new SystemException("Ha ocurrido un error en la base de datos", e);
-        }
-        finally
-        {
-            if (adapter != null) adapter.SelectCommand.Connection.Close();
-        }
-    }
+            SqlDataAdapter adapter = null;
+            using (persistentConnection)
+            {
+                persistentConnection.Open();
+                adapter = new SqlDataAdapter(procedureName, persistentConnection);
+                adapter.SelectCommand.Parameters.AddRange(parameters.ToArray());
+                adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                DataTable data = new DataTable();
+                adapter.Fill(data);
+                return (data.Rows.Count > 0) ? data : null;
+            }
 
+
+        }
     }
 }
