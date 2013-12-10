@@ -30,7 +30,7 @@ namespace Clinica_Frba
 
         public DataTable ExecuteQuery(string procedureName, List<SqlParameter> parameters){
         SqlDataAdapter adapter = null;
-        using(persistentConnection)
+        try
         {
             persistentConnection.Open();
             adapter = new SqlDataAdapter(procedureName, persistentConnection);
@@ -39,8 +39,16 @@ namespace Clinica_Frba
             DataTable data = new DataTable();
             adapter.Fill(data);
             return (data.Rows.Count > 0) ? data : null;
-           
         }
+        catch (Exception e)
+        {
+            throw new SystemException("Ha ocurrido un error en la base de datos", e);
+        }
+        finally
+        {
+            if (adapter != null) adapter.SelectCommand.Connection.Close();
+        }
+
         
 
     }

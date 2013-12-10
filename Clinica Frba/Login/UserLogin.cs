@@ -68,24 +68,23 @@ namespace Clinica_Frba.Login
             else
             {
                 //incorrect login
-                if (anterior == usr && anterior != null)
+                loginAttemptsCount++;
+                if (anterior == usr)
                 {
-                    loginAttemptsCount++;
-                    if (loginAttemptsCount >= 3)
+                    if (loginAttemptsCount == 3)
                     {
                         //block?
                         MessageBox.Show("Ha llegado al máximo de intentos de login fallidos.El usuario se bloqueará, contacte al administrador del sistema",
                             "Max login attempts", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                }
-                else
-                {
-                    loginAttemptsCount = 1;
-                    anterior = usr;
-                    MessageBox.Show("Usuario o password incorrecto. Intente de nuevo.",
-                   "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    else
+                    {
+                        anterior = usr;
+                        MessageBox.Show("Usuario o password incorrecto. Intente de nuevo.",
+                       "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
             }
         }
