@@ -14,7 +14,7 @@ BEGIN
 		
 	BEGIN	
 		INSERT @tablaRoles
-		EXEC HAKUNA_MATATA.dameRolesDeUsuario @id_usuario
+		EXEC HAKUNA_MATATA.SP_dameRolDeUsuario @id_usuario
 	END	
 	RETURN 
 

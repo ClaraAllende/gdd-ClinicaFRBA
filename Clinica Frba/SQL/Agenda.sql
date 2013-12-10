@@ -17,7 +17,8 @@ DECLARE @fecha1 dateTime = @fechaAux1
 DECLARE @fecha2 dateTime = @fechaAux2
 EXEC HAKUNA_MATATA.SP_agregarAgenda 3, @fecha1, @fecha2;
 SELECT * FROM HAKUNA_MATATA.Agenda
-DROP PROCEDURE [HAKUNA_MATATA].[SP_agregarAgenda];
+*/
+/*
 DELETE HAKUNA_MATATA.Agenda
 SELECT * FROM HAKUNA_MATATA.Agenda
 */
@@ -48,15 +49,17 @@ CREATE PROCEDURE [HAKUNA_MATATA].[SP_reservarTurno]
 AS
 BEGIN
 	DECLARE @afiliado numeric(18,0);
-	SET @afiliado = (SELECT T.id_afiliado from HAKUNA_MATATA.Turno T WHERE T.id_turno = @id_turno
+	SET @afiliado = (SELECT T.id_afiliado FROM HAKUNA_MATATA.Turno T WHERE T.id_turno = @id_turno)
 	IF (@afiliado is null)
 		UPDATE T SET T.id_afiliado = @id_afiliado FROM HAKUNA_MATATA.Turno T WHERE T.id_turno = @id_turno
 END
 GO
 
 
-/*
+
 DROP PROCEDURE [HAKUNA_MATATA].[SP_reservarTurno];
-EXEC HAKUNA_MATATA.SP_reservarTurno 13, 101;
+DROP PROCEDURE [HAKUNA_MATATA].[SP_agregarAgenda];
+
+/*EXEC HAKUNA_MATATA.SP_reservarTurno 13, 101;
 select * from HAKUNA_MATATA.Turno
-/*
+*/

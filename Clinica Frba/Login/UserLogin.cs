@@ -68,7 +68,7 @@ namespace Clinica_Frba.Login
             else
             {
                 //incorrect login
-                if (anterior == usr)
+                if (anterior == usr && anterior != null)
                 {
                     loginAttemptsCount++;
                     if (loginAttemptsCount >= 3)
@@ -93,8 +93,8 @@ namespace Clinica_Frba.Login
 
         protected void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text)) button1.Enabled = false;
-            else button1.Enabled = true;
+            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text)) button1.Enabled = true;
+            else button1.Enabled = false;
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -104,7 +104,7 @@ namespace Clinica_Frba.Login
 
         private void textBox2_TextChanged_1(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text)) button1.Enabled = false;
+            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text)) button1.Enabled = true;
             else button1.Enabled = true;
         }
 

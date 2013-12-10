@@ -72,6 +72,9 @@ DROP TABLE HAKUNA_MATATA.Consulta;
 DROP TABLE HAKUNA_MATATA.Medicamento;
 DROP TABLE HAKUNA_MATATA.AuditoriaAfiliado;
 
+DROP PROCEDURE [HAKUNA_MATATA].[SP_reservarTurno];
+DROP PROCEDURE [HAKUNA_MATATA].[SP_agregarAgenda];
+DROP PROCEDURE [HAKUNA_MATATA].[SP_agregarTurno];
 -------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------
 ----------------------------------DROP SCHEMA----------------------------------------

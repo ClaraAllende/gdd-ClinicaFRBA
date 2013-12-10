@@ -19,7 +19,7 @@ namespace Clinica_Frba
 
         public string getConnectionString()
         {
-            return ConfigurationManager.AppSettings["connectionString"];
+            return ConfigurationManager.AppSettings["ConnectionString"];
         }
     }
 }
