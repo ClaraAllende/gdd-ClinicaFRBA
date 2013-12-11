@@ -6,7 +6,8 @@ using System.Text;
 namespace Clinica_Frba.Abm_de_Rol
 {
   public class Rol{
-        string nombre;
+      int id { get; set; }
+      string nombre { get; set; }
         List<Funcionalidad> funcionalidades = new List<Funcionalidad>();
 
 //Public constructor

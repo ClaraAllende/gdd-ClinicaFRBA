@@ -10,8 +10,8 @@ namespace Clinica_Frba.Registro_de_Usuario
     class Usuario
     {
 
-        private int id;
-        private List<Rol> roles;
+        public int id {get; set;}
+        public List<Rol> roles { get; set; }
 
         public Usuario(int userId, List<Rol> rolesUsuario)
         {
