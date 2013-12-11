@@ -14,14 +14,14 @@ namespace Clinica_Frba.NewFolder1
         // En las clases le agrego los Ids para que sea mas facil la interaccion con la DB
         public class Rol
         {
-            int id_rol;
-            string numbre;
+            int id_rol { get; set; }
+            string nombre { get; set; }
             List<Funcionalidad> funcionaldades = new List<Funcionalidad>();
         }
         public class Funcionalidad
         {
-            int id_funcionalidad;
-            string numbre;
+            int id_funcionalidad { get; set; }
+            string nombre { get; set; }
         }
 
         public FormRoles()
