@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Clinica_Frba.Registro_de_Usuario;
 using System.Security.Cryptography;
 using System.Data.SqlClient;
+using Clinica_Frba.Abm_de_Rol;
 
 namespace Clinica_Frba.Login
 {
@@ -18,7 +19,6 @@ namespace Clinica_Frba.Login
         public string pass;
         public string anterior;
         public int loginAttemptsCount;
-  
 
         private static string encript(string password)
         {
@@ -51,9 +51,6 @@ namespace Clinica_Frba.Login
         {
               InitializeComponent();
               this.button1.Enabled = false;
-
-               //bloquear todo.
-
         }
 
         private void login()
@@ -61,9 +58,10 @@ namespace Clinica_Frba.Login
            
             if (queryLogin(textBox1.Text, textBox2.Text) != null)
             {
-                //login correcto
+                //para crear a un nuevo usuario, necesitarìa volver a querear a la base para obtener por lo menos el id y los roles.
+              
                 //habilitar funcionalidades
-                //open next window--> Rol.
+                Application.Run(new Roles_Usuario());
             }
             else
             {

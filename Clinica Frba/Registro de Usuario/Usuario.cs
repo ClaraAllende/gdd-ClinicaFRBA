@@ -7,36 +7,16 @@ using System.ComponentModel;
 
 namespace Clinica_Frba.Registro_de_Usuario
 {
-    class Usuario : INotifyPropertyChanged
+    class Usuario
     {
-        private int loginAttempsCount;
-        private string username;
-        public string Username
-        {
-            get { return username; }
-            set
-            {
-                username = value;
-                InvokePropertyChanged(new PropertyChangedEventArgs("Username"));
-            }
-        }
 
-        protected string password;
-        public string Password
-        {
-            set
-            {
-                password = value;
-                InvokePropertyChanged(new PropertyChangedEventArgs("Password"));
-            }
-        }
+        private int id;
+        private List<Rol> roles;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void InvokePropertyChanged(PropertyChangedEventArgs propertyChangedEventArgs)
+        public Usuario(int userId, List<Rol> rolesUsuario)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, propertyChangedEventArgs);
+            id = userId;
+            roles = rolesUsuario;
         }
-
     }
-    }
+}
