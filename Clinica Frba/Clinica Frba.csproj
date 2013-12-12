@@ -103,8 +103,12 @@
     <Compile Include="Abm de Rol\Alta-Modificacion Rol.Designer.cs">
       <DependentUpon>Alta-Modificacion Rol.cs</DependentUpon>
     </Compile>
-    <Compile Include="Abm de Rol\Funcionalidad.cs" />
-    <Compile Include="Abm de Rol\Rol.cs" />
+    <Compile Include="Abm de Rol\Roles Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm de Rol\Roles Usuario.Designer.cs">
+      <DependentUpon>Roles Usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Configuration.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="DatosPersonales.cs" />
@@ -213,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm de Rol\Alta-Modificacion Rol.resx">
       <DependentUpon>Alta-Modificacion Rol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm de Rol\Roles Usuario.resx">
+      <DependentUpon>Roles Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compra de Bono\CompraDeBonos.resx">
       <DependentUpon>CompraDeBonos.cs</DependentUpon>

@@ -16,9 +16,11 @@ namespace Clinica_Frba.Login
     public partial class UserLoginWindow : Form
     {
         public string usr;
-        public string pass;
+        public int id;
         public string anterior;
         public int loginAttemptsCount;
+        public Usuario selectedUser;
+        public static SqlParameter idUser;
 
         private static string encript(string password)
         {
@@ -32,18 +34,28 @@ namespace Clinica_Frba.Login
             return hash;
         }
 
+        public DataTable queryRoles(int id_usuario)
+        {
+            List<SqlParameter> parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("id_usuario", idUser.Value));
+            DataTable roles = DBConnection.getInstance.ExecuteQuery("HAKUNA_MATATA.SP_dameRolDeUsuario", parms);
+            return roles;  
+        }
 
        public DataTable queryLogin(string usuario, string pswd){
-           List<SqlParameter> ps = createQueryParameters(usuario, pswd);
+           List<SqlParameter> ps = createQueryParameters(usuario, pswd, id);
             DataTable user = DBConnection.getInstance.ExecuteQuery("HAKUNA_MATATA.SP_login", ps);
             return user; 
        }
 
-       private static List<SqlParameter> createQueryParameters(string usuario, string pswd)
+       private static List<SqlParameter> createQueryParameters(string usuario, string pswd, int id)
        {
            List<SqlParameter> ps = new List<SqlParameter>();
+           idUser = new SqlParameter("id_usuario", SqlDbType.Int, 20);
+           idUser.Direction = ParameterDirection.Output;
            ps.Add(new SqlParameter("nombre", usuario));
            ps.Add(new SqlParameter("contrasenia", encript(pswd)));
+           ps.Add(idUser);
            return ps;
        }
       
@@ -55,11 +67,12 @@ namespace Clinica_Frba.Login
 
         private void login()
         {
-           
-            if (queryLogin(textBox1.Text, textBox2.Text) != null)
+            DataTable login = queryLogin(textBox1.Text, textBox2.Text);
+            
+            if (login != null)
             {
-                //para crear a un nuevo usuario, necesitarìa volver a querear a la base para obtener por lo menos el id y los roles.
-              
+                //queryRoles(idUser.Value);
+                //selectedUser = new Usuario(idUser.Value, asRol(roles); 
                 //habilitar funcionalidades
                 Application.Run(new Roles_Usuario());
             }
@@ -78,14 +91,23 @@ namespace Clinica_Frba.Login
                     }
                     else
                     {
-                        anterior = usr;
                         MessageBox.Show("Usuario o password incorrecto. Intente de nuevo.",
                        "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
+                else
+                {
+                    anterior = usr;
+                    MessageBox.Show("Usuario o password incorrecto. Intente de nuevo.",
+                   "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+
+                }
+                }
             }
-        }
+        
+
 
 
         protected void textBox1_TextChanged(object sender, EventArgs e)
@@ -107,6 +129,7 @@ namespace Clinica_Frba.Login
 
         private void button1_Click(object sender, EventArgs e)
         {
+            usr = textBox1.Text;
             login();
         }
 
