@@ -31,7 +31,23 @@ GO
 --EXEC HAKUNA_MATATA.dameNombreRol 1;
 --SELECT * FROM HAKUNA_MATATA.Rol
 
-CREATE PROCEDURE [HAKUNA_MATATA].[SP_dameFuncionalidades]
+CREATE FUNCTION HAKUNA_MATATA.SP_dameRoles()
+	RETURNS @tabla TABLE(
+						 id_rol numeric(18,0),
+						 descripcion varchar(255))
+AS
+BEGIN
+		INSERT INTO @tabla
+		SELECT R.id_rol, R.descripcion
+		FROM HAKUNA_MATATA.Rol R
+		WHERE R.habilitada = 1;
+		RETURN
+END
+GO
+
+
+
+CREATE PROCEDURE HAKUNA_MATATA.SP_dameFuncionalidades
 (@codigoRol numeric(18,0))
 -- Mandando como parametro el valor -1 devuelve todas las funcionaldades habilitadas
 AS
@@ -81,29 +97,29 @@ BEGIN
 	SELECT @id_funcionalidad = id_funcionalidad FROM HAKUNA_MATATA.Funcionalidad
 	WHERE nombre = @nombreFuncionalidad
 	
-	DELETE FROM [HAKUNA_MATATA].[FuncionalidadXRol]
+	DELETE FROM [HAKUNA_MATATA].FuncionalidadXRol
 	WHERE id_rol = @id_rol AND id_funcionalidad = @id_funcionalidad;
 END
 GO
 
-CREATE PROCEDURE [HAKUNA_MATATA].[SP_agregarRol]
+CREATE PROCEDURE HAKUNA_MATATA.SP_agregarRol
 (@nombre nvarchar(255)) 
 AS
 BEGIN
 	IF( NOT EXISTS(
 		SELECT * FROM HAKUNA_MATATA.Rol R WHERE R.descripcion=@nombre))
-	INSERT INTO [HAKUNA_MATATA].[ROL] (descripcion) VALUES (@nombre)
+	INSERT INTO HAKUNA_MATATA.ROL (descripcion) VALUES (@nombre)
 END
 GO
 
 --EXEC HAKUNA_MATATA.SP_agregarRol 'pepe';
 --SELECT * FROM HAKUNA_MATATA.Rol
 
-CREATE PROCEDURE [HAKUNA_MATATA].[SP_modificarRol]
+CREATE PROCEDURE HAKUNA_MATATA.SP_modificarRol
 (@id_rol numeric(18,0), @nombreNuevo varchar(255)) 
 AS
 BEGIN	
-	UPDATE [HAKUNA_MATATA].[ROL] 
+	UPDATE HAKUNA_MATATA.ROL 
 	SET descripcion = @nombreNuevo
 	WHERE id_rol = @id_rol
 END
@@ -112,7 +128,7 @@ GO
 --EXEC HAKUNA_MATATA.SP_modificarRol 'pepe', 'papa';
 --SELECT * FROM HAKUNA_MATATA.Rol
 
-CREATE PROCEDURE [HAKUNA_MATATA].[SP_inhabilitarRol]
+CREATE PROCEDURE HAKUNA_MATATA.SP_inhabilitarRol
 	(@id_rol numeric (18,0)) 
 AS
 BEGIN
@@ -131,7 +147,7 @@ GO
 --SELECT * FROM HAKUNA_MATATA.Rol
 --SELECT * FROM HAKUNA_MATATA.UsuarioXRol
 
-CREATE PROCEDURE [HAKUNA_MATATA].[SP_habilitarRol]
+CREATE PROCEDURE HAKUNA_MATATA.SP_habilitarRol
 	(@id_rol numeric (18,0)) 
 AS
 BEGIN
@@ -148,11 +164,12 @@ GO
 /*
 DROP PROCEDURE HAKUNA_MATATA.SP_dameRolDeUsuario;
 DROP FUNCTION HAKUNA_MATATA.dameNombreRol;
-DROP PROCEDURE [HAKUNA_MATATA].[SP_dameFuncionalidades];
-DROP PROCEDURE [HAKUNA_MATATA].[SP_agregarFuncionalidadAlRol];
-DROP PROCEDURE [HAKUNA_MATATA].[SP_borrarFuncionalidadAlRol];
-DROP PROCEDURE [HAKUNA_MATATA].[SP_agregarRol];
-DROP PROCEDURE [HAKUNA_MATATA].[SP_modificarRol];
-DROP PROCEDURE [HAKUNA_MATATA].[SP_inhabilitarRol];
-DROP PROCEDURE [HAKUNA_MATATA].[SP_habilitarRol];
+DROP FUNCTION HAKUNA_MATATA.SP_dameRoles;
+DROP PROCEDURE HAKUNA_MATATA.SP_dameFuncionalidades;
+DROP PROCEDURE HAKUNA_MATATA.SP_agregarFuncionalidadAlRol;
+DROP PROCEDURE HAKUNA_MATATA.SP_borrarFuncionalidadAlRol;
+DROP PROCEDURE HAKUNA_MATATA.SP_agregarRol;
+DROP PROCEDURE HAKUNA_MATATA.SP_modificarRol;
+DROP PROCEDURE HAKUNA_MATATA.SP_inhabilitarRol;
+DROP PROCEDURE HAKUNA_MATATA.SP_habilitarRol;
 */
