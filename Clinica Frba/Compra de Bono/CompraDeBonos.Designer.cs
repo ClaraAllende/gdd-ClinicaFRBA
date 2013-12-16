@@ -133,8 +133,9 @@ namespace Clinica_Frba.NewFolder3
             this.button3.TabIndex = 10;
             this.button3.Text = "Cancelar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // Form1
+            // FormBonos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -150,7 +151,7 @@ namespace Clinica_Frba.NewFolder3
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "FormBonos";
             this.Text = "Compra de Bonos";
             this.ResumeLayout(false);
             this.PerformLayout();
