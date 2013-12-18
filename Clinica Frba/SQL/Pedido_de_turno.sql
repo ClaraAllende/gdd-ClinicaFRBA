@@ -18,7 +18,7 @@ CREATE FUNCTION HAKUNA_MATATA.FN_get_especialidades
 	()
 RETURNS @tabla TABLE
 	(descripcion VARCHAR(255),
-	 id_especialidad NUMERIC(18,0)
+	 id_especialidad NUMERIC(18,0)--no se debe mostrar, es por si hay descripciones duplicadas??
 	)
 AS
 BEGIN
@@ -35,7 +35,7 @@ CREATE FUNCTION HAKUNA_MATATA.FN_get_profesionales_por_especialidad
 	)
 RETURNS @tabla TABLE
 	(nombre_y_apellido VARCHAR(510),
-	 matricula NUMERIC(18,0)
+	 matricula NUMERIC(18,0)--no se debe mostrar, pero cuando seleccione un profesional, debe enviar la matricula para poder mostrar los dias que atiende
 	)
 AS
 BEGIN
@@ -51,6 +51,20 @@ BEGIN
 	RETURN
 END
 GO
+
+CREATE FUNCTION HAKUNTA_MATATA.FN_get_dias_profesional
+	(@matricula NUMERIC(18,0)
+	)
+RETURNS @tabla TABLE
+	(
+	)
+AS
+BEGIN
+	
+	RETURN
+END
+GO
+
 
 /*
 DROP FUNCTION HAKUNA_MATATA.FN_get_profesionales
