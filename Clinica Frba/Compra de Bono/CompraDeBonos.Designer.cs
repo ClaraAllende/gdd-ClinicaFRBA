@@ -57,6 +57,7 @@ namespace Clinica_Frba.Compra_de_Bono
             this.txt_CantBonosConsulta.Name = "txt_CantBonosConsulta";
             this.txt_CantBonosConsulta.Size = new System.Drawing.Size(32, 20);
             this.txt_CantBonosConsulta.TabIndex = 3;
+            this.txt_CantBonosConsulta.TextChanged += new System.EventHandler(this.txt_CantBonosConsulta_TextChanged);
             // 
             // lbl_NroDeAfialiado
             // 
@@ -73,6 +74,7 @@ namespace Clinica_Frba.Compra_de_Bono
             this.txt_NroDeAfiliado.Name = "txt_NroDeAfiliado";
             this.txt_NroDeAfiliado.Size = new System.Drawing.Size(115, 20);
             this.txt_NroDeAfiliado.TabIndex = 7;
+            this.txt_NroDeAfiliado.TextChanged += new System.EventHandler(this.txt_NroDeAfiliado_TextChanged);
             // 
             // txt_Precio
             // 
@@ -116,6 +118,7 @@ namespace Clinica_Frba.Compra_de_Bono
             this.txt_CantBonosFarmacia.Name = "txt_CantBonosFarmacia";
             this.txt_CantBonosFarmacia.Size = new System.Drawing.Size(32, 20);
             this.txt_CantBonosFarmacia.TabIndex = 12;
+            this.txt_CantBonosFarmacia.TextChanged += new System.EventHandler(this.txt_CantBonosFarmacia_TextChanged);
             // 
             // btn_CalcularPrecio
             // 
