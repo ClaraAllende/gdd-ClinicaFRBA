@@ -6,10 +6,17 @@ RETURNS @tabla TABLE
 	)
 AS
 BEGIN
-	INSERT INTO @tabla
+
+	DECLARE @tablaTemp table	(nombre_y_apellido VARCHAR(510),
+								 matricula NUMERIC(18,0))
+	INSERT INTO @tablaTemp
 	SELECT nombre + apellido, matricula
 	FROM HAKUNA_MATATA.Profesional
 	WHERE habilitada = 1
+	
+	INSERT INTO @tabla
+	SELECT nombre_y_apellido, matricula
+	FROM @tablaTemp
 	RETURN
 END
 GO
