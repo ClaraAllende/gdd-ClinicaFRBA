@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
-namespace Clinica_Frba.NewFolder3
+namespace Clinica_Frba.Compra_de_Bono
 {
-    partial class FormBonos: Form
+    partial class CompraDeBonosWindow : Form
     {
         /// <summary>
         /// Required designer variable.
@@ -29,130 +29,132 @@ namespace Clinica_Frba.NewFolder3
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.Subtotal = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.lbl_CantBonosFarmacia = new System.Windows.Forms.Label();
+            this.txt_CantBonosConsulta = new System.Windows.Forms.TextBox();
+            this.lbl_NroDeAfialiado = new System.Windows.Forms.Label();
+            this.txt_NroDeAfiliado = new System.Windows.Forms.TextBox();
+            this.txt_Precio = new System.Windows.Forms.TextBox();
+            this.btn_Comprar = new System.Windows.Forms.Button();
+            this.btn_Cancelar = new System.Windows.Forms.Button();
+            this.lbl_CantBonosConsulta = new System.Windows.Forms.Label();
+            this.txt_CantBonosFarmacia = new System.Windows.Forms.TextBox();
+            this.btn_CalcularPrecio = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // lbl_CantBonosFarmacia
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tipo de Bono";
+            this.lbl_CantBonosFarmacia.AutoSize = true;
+            this.lbl_CantBonosFarmacia.Location = new System.Drawing.Point(12, 90);
+            this.lbl_CantBonosFarmacia.Name = "lbl_CantBonosFarmacia";
+            this.lbl_CantBonosFarmacia.Size = new System.Drawing.Size(143, 13);
+            this.lbl_CantBonosFarmacia.TabIndex = 2;
+            this.lbl_CantBonosFarmacia.Text = "Cantidad de Bonos Farmacia";
             // 
-            // comboBox1
+            // txt_CantBonosConsulta
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(101, 13);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 1;
+            this.txt_CantBonosConsulta.Location = new System.Drawing.Point(172, 50);
+            this.txt_CantBonosConsulta.Name = "txt_CantBonosConsulta";
+            this.txt_CantBonosConsulta.Size = new System.Drawing.Size(32, 20);
+            this.txt_CantBonosConsulta.TabIndex = 3;
             // 
-            // label2
+            // lbl_NroDeAfialiado
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Cantidad";
+            this.lbl_NroDeAfialiado.AutoSize = true;
+            this.lbl_NroDeAfialiado.Location = new System.Drawing.Point(12, 24);
+            this.lbl_NroDeAfialiado.Name = "lbl_NroDeAfialiado";
+            this.lbl_NroDeAfialiado.Size = new System.Drawing.Size(56, 13);
+            this.lbl_NroDeAfialiado.TabIndex = 6;
+            this.lbl_NroDeAfialiado.Text = "Afiliado Nº";
             // 
-            // textBox1
+            // txt_NroDeAfiliado
             // 
-            this.textBox1.Location = new System.Drawing.Point(101, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.txt_NroDeAfiliado.Location = new System.Drawing.Point(89, 17);
+            this.txt_NroDeAfiliado.Name = "txt_NroDeAfiliado";
+            this.txt_NroDeAfiliado.Size = new System.Drawing.Size(115, 20);
+            this.txt_NroDeAfiliado.TabIndex = 7;
             // 
-            // Subtotal
+            // txt_Precio
             // 
-            this.Subtotal.AutoSize = true;
-            this.Subtotal.Location = new System.Drawing.Point(18, 172);
-            this.Subtotal.Name = "Subtotal";
-            this.Subtotal.Size = new System.Drawing.Size(46, 13);
-            this.Subtotal.TabIndex = 4;
-            this.Subtotal.Text = "Subtotal";
+            this.txt_Precio.Location = new System.Drawing.Point(140, 144);
+            this.txt_Precio.Name = "txt_Precio";
+            this.txt_Precio.Size = new System.Drawing.Size(64, 20);
+            this.txt_Precio.TabIndex = 8;
             // 
-            // button1
+            // btn_Comprar
             // 
-            this.button1.Location = new System.Drawing.Point(184, 126);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_Comprar.Location = new System.Drawing.Point(40, 220);
+            this.btn_Comprar.Name = "btn_Comprar";
+            this.btn_Comprar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Comprar.TabIndex = 9;
+            this.btn_Comprar.Text = "Comprar";
+            this.btn_Comprar.UseVisualStyleBackColor = true;
+            this.btn_Comprar.Click += new System.EventHandler(this.btn_Comprar_Click);
             // 
-            // label3
+            // btn_Cancelar
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 92);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Afiliado Nº";
+            this.btn_Cancelar.Location = new System.Drawing.Point(140, 220);
+            this.btn_Cancelar.Name = "btn_Cancelar";
+            this.btn_Cancelar.Size = new System.Drawing.Size(75, 23);
+            this.btn_Cancelar.TabIndex = 10;
+            this.btn_Cancelar.Text = "Cancelar";
+            this.btn_Cancelar.UseVisualStyleBackColor = true;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
-            // textBox2
+            // lbl_CantBonosConsulta
             // 
-            this.textBox2.Location = new System.Drawing.Point(101, 89);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 7;
+            this.lbl_CantBonosConsulta.AutoSize = true;
+            this.lbl_CantBonosConsulta.Location = new System.Drawing.Point(12, 57);
+            this.lbl_CantBonosConsulta.Name = "lbl_CantBonosConsulta";
+            this.lbl_CantBonosConsulta.Size = new System.Drawing.Size(141, 13);
+            this.lbl_CantBonosConsulta.TabIndex = 11;
+            this.lbl_CantBonosConsulta.Text = "Cantidad de Bonos Consulta";
             // 
-            // textBox3
+            // txt_CantBonosFarmacia
             // 
-            this.textBox3.Location = new System.Drawing.Point(101, 172);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 8;
+            this.txt_CantBonosFarmacia.Location = new System.Drawing.Point(172, 83);
+            this.txt_CantBonosFarmacia.Name = "txt_CantBonosFarmacia";
+            this.txt_CantBonosFarmacia.Size = new System.Drawing.Size(32, 20);
+            this.txt_CantBonosFarmacia.TabIndex = 12;
             // 
-            // button2
+            // btn_CalcularPrecio
             // 
-            this.button2.Location = new System.Drawing.Point(101, 222);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Comprar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_CalcularPrecio.Location = new System.Drawing.Point(12, 141);
+            this.btn_CalcularPrecio.Name = "btn_CalcularPrecio";
+            this.btn_CalcularPrecio.Size = new System.Drawing.Size(103, 23);
+            this.btn_CalcularPrecio.TabIndex = 13;
+            this.btn_CalcularPrecio.Text = "Calcular precio";
+            this.btn_CalcularPrecio.UseVisualStyleBackColor = true;
+            this.btn_CalcularPrecio.Click += new System.EventHandler(this.btn_CalcularPrecio_Click);
             // 
-            // button3
+            // label4
             // 
-            this.button3.Location = new System.Drawing.Point(198, 222);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(127, 146);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(13, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "$";
             // 
-            // FormBonos
+            // CompraDeBonosWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 266);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.Subtotal);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
-            this.Name = "FormBonos";
+            this.ClientSize = new System.Drawing.Size(229, 253);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btn_CalcularPrecio);
+            this.Controls.Add(this.txt_CantBonosFarmacia);
+            this.Controls.Add(this.lbl_CantBonosConsulta);
+            this.Controls.Add(this.btn_Cancelar);
+            this.Controls.Add(this.btn_Comprar);
+            this.Controls.Add(this.txt_Precio);
+            this.Controls.Add(this.txt_NroDeAfiliado);
+            this.Controls.Add(this.lbl_NroDeAfialiado);
+            this.Controls.Add(this.txt_CantBonosConsulta);
+            this.Controls.Add(this.lbl_CantBonosFarmacia);
+            this.Name = "CompraDeBonosWindow";
             this.Text = "Compra de Bonos";
+            this.Load += new System.EventHandler(this.CompraDeBonosWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,16 +162,16 @@ namespace Clinica_Frba.NewFolder3
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label Subtotal;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lbl_CantBonosFarmacia;
+        private System.Windows.Forms.TextBox txt_CantBonosConsulta;
+        private System.Windows.Forms.Label lbl_NroDeAfialiado;
+        private System.Windows.Forms.TextBox txt_NroDeAfiliado;
+        private System.Windows.Forms.TextBox txt_Precio;
+        private System.Windows.Forms.Button btn_Comprar;
+        private System.Windows.Forms.Button btn_Cancelar;
+        private Label lbl_CantBonosConsulta;
+        private TextBox txt_CantBonosFarmacia;
+        private Button btn_CalcularPrecio;
+        private Label label4;
     }
 }

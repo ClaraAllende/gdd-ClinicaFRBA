@@ -23,6 +23,8 @@ namespace Clinica_Frba
             {
                 if (instance == null) {
                     instance = new DBConnection(Configuration.getInstance.getConnectionString());
+//                    instance = new DBConnection("Data Source=UTN-GDD-DACAB4E\SQLSERVER2008;Initial Catalog=GD2C2013;User ID=gd;Password=gd2013");
+                    
                 } 
                 return instance;
             }
