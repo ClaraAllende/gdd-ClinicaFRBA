@@ -29,10 +29,17 @@ RETURNS @tabla TABLE
 	)
 AS
 BEGIN
-	INSERT INTO @tabla
+	DECLARE @tablaTemp table	(descripcion VARCHAR(255),
+								 id_especialidad NUMERIC(18,0))
+
+	INSERT INTO @tablaTemp
 	SELECT descripcion, id_especialidad
 	FROM HAKUNA_MATATA.Especialidad
 	WHERE habilitada = 1
+	
+	INSERT INTO @tabla
+	SELECT nombre_y_apellido, matricula
+	FROM @tablaTemp
 	RETURN
 END
 GO
